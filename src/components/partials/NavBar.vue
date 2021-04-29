@@ -4,7 +4,7 @@
             <!--            <v-app-bar-nav-icon></v-app-bar-nav-icon>-->
             <v-toolbar-title>C/GPA</v-toolbar-title>
             <v-spacer></v-spacer>
-            <v-btn icon>
+            <v-btn v-if="webShareApiSupported" @click="shareViaWebShare" icon>
                 <v-icon>mdi-share</v-icon>
             </v-btn>
 
@@ -25,10 +25,20 @@
         mixins: [],
         computed: {
             ...mapGetters('gpa', ['getForm', 'getInitialState']),
+            webShareApiSupported() {
+                return navigator.share
+            },
         },
 
         name: "NavBar",
         methods: {
+            shareViaWebShare() {
+                navigator.share({
+                    title: 'Share GPA Calculator with your friends',
+                    text: 'Accumulator Grade point Calculator',
+                    url: this.$route.fullPath
+                })
+            },
             add() {
                 let len = this.getForm.length;
                 if (len === 0) {
