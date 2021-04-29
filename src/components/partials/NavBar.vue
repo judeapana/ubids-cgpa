@@ -1,15 +1,10 @@
 <template>
     <v-card color="red lighten-grey" flat tile :loading="false">
         <v-toolbar dense>
-            <!--            <v-app-bar-nav-icon></v-app-bar-nav-icon>-->
             <v-toolbar-title>C/GPA</v-toolbar-title>
             <v-spacer></v-spacer>
             <v-btn v-if="webShareApiSupported" @click="shareViaWebShare" icon>
                 <v-icon>mdi-share</v-icon>
-            </v-btn>
-
-            <v-btn icon>
-                <v-icon>mdi-dots-vertical</v-icon>
             </v-btn>
             <v-btn @click="add" class="ml-2" color="green darken-green" outlined fab small bottom>
                 <v-icon>mdi-plus</v-icon>
@@ -29,7 +24,6 @@
                 return navigator.share
             },
         },
-
         name: "NavBar",
         methods: {
             shareViaWebShare() {
@@ -52,7 +46,6 @@
                 }
             },
             ...mapActions('gpa', ["a_AddForm"]),
-
         },
         data: () => ({
 
