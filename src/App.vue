@@ -1,32 +1,32 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+    <v-app>
+        <NavBar/>
+        <router-view/>
+        <div class="text-center ma-2">
+            <v-snackbar v-model="snackbar">
+                {{ text }}
+                <template v-slot:action="{ attrs }">
+                    <v-btn color="pink" text v-bind="attrs" @click="snackbar = false">
+                        Close
+                    </v-btn>
+                </template>
+            </v-snackbar>
+        </div>
+
+    </v-app>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
 
-#nav {
-  padding: 30px;
-}
+    import NavBar from "./components/partials/NavBar";
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
+    export default {
 
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
+        name: 'App',
+        components: {NavBar},
+        data: () => ({
+            snackbar: false,
+            text: "",
+        }),
+    };
+</script>
