@@ -1,6 +1,8 @@
 module.exports = {
-    transpileDependencies: [
-        'vuetify'
-    ],
-    publicPath: process.env.NODE_ENV === 'production' ? '/' : '/'
+  transpileDependencies: [
+    'vuetify'
+  ],
+  pwa: {
+    name: 'C/GPA Calculator',
+  }
 }
