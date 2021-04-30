@@ -8,7 +8,7 @@ Vue.use(VueRouter)
 const routes = [
     {
         path: '/',
-        name: 'GPA',
+        name: 'gpa',
         component: GPA
     },
     {

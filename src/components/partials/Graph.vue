@@ -1,16 +1,14 @@
 <template>
     <div>
-        <apexchart type="line" :options="chartOptions" :series="series"></apexchart>
-        <v-bottom-navigation >
-            <v-btn v-if="$route.name!=='graph'" to="graph" :disabled="!valid" color="deep-purple accent-4" text>
-                <span>Graph</span>
-                <v-icon>mdi-graph</v-icon>
-            </v-btn>
-            <v-btn to="gpa" v-if="$route.name==='graph'" color="deep-purple accent-4" text>
+        <v-bottom-navigation>
+            <v-btn to="/" color="deep-purple accent-4" text>
                 <span>Back</span>
                 <v-icon>mdi-chevron-left</v-icon>
             </v-btn>
         </v-bottom-navigation>
+
+        <apexchart type="line" :options="chartOptions" :series="series"></apexchart>
+
     </div><!--        <vue-chart></vue-chart>-->
 </template>
 
@@ -21,7 +19,7 @@
     export default {
         name: 'Graph',
         mounted() {
-            this.chartOptions.xaxis.categories = this.getCourseNames()
+
             this.series[0].data = this.getForm.map(x => x.score)
         },
         computed: {
@@ -61,7 +59,7 @@
                         },
                     },
                     xaxis: {
-                        categories: [],
+                        categories: this.getCourseNames(),
                     }
                 }
             }
