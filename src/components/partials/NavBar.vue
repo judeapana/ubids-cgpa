@@ -9,8 +9,8 @@
             <v-btn v-if="$route.name!=='graph'" @click="add" class="ml-2" color="green darken-green" outlined fab small bottom>
                 <v-icon>mdi-plus</v-icon>
             </v-btn>
-            <v-btn to="gpa" v-if="$route.name==='graph'" @click="add" class="ml-2" color="green darken-green" outlined fab small bottom>
-                <v-icon>mdi-chevron-left</v-icon>
+            <v-btn to="gpa" v-if="$route.name==='graph'" class="ml-2" color="red" outlined fab small bottom>
+                <v-icon >mdi-chevron-left</v-icon>
             </v-btn>
 
         </v-toolbar>

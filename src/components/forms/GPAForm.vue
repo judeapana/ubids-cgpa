@@ -133,7 +133,7 @@
         },
         data() {
             return {
-                panel: [0],
+                panel: [],
                 form: [],
                 rules: {
                     courseName: [this.required()],
