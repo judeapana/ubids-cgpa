@@ -12,7 +12,6 @@
                 </template>
             </v-snackbar>
         </div>
-
     </v-app>
 </template>
 

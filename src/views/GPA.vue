@@ -1,7 +1,7 @@
 <template>
     <div>
-        <GPAForm></GPAForm>
-        <v-bottom-navigation absolute horizontal>
+
+        <v-bottom-navigation horizontal>
             <v-btn :disabled="!valid" @click="run" color="deep-purple accent-4" text>
                 <span>Calculate</span>
                 <v-icon>mdi-history</v-icon>
@@ -10,11 +10,13 @@
                 <span>Reset All</span>
                 <v-icon>mdi-delete</v-icon>
             </v-btn>
-            <v-btn :disabled="!valid" color="deep-purple accent-4" text>
+
+            <v-btn to="graph" :disabled="!valid" color="deep-purple accent-4" text>
                 <span>Graph</span>
                 <v-icon>mdi-graph</v-icon>
             </v-btn>
         </v-bottom-navigation>
+        <GPAForm></GPAForm>
         <v-dialog
                 v-model="dialog"
                 width="500">
@@ -36,10 +38,6 @@
 
                 <v-card-actions>
                     <v-spacer></v-spacer>
-                    <!--                    <v-btn v-if="!isNaN(gpa)" color="green darken-1" text @click="dialog = false">-->
-                    <!--                        Disagree-->
-                    <!--                    </v-btn>-->
-
                     <v-btn color="green darken-1" text @click="dialog = false">
                         Close
                     </v-btn>
@@ -60,7 +58,9 @@
         data() {
             return {
                 dialog: false,
-                gpa: 0
+                gpa: 0,
+                snackbar: false,
+                text: ""
             }
         },
         computed: {
@@ -69,6 +69,7 @@
             })
         },
         methods: {
+
             ...mapActions('gpa', ['a_GetGPA', 'a_Reset']),
             reset() {
                 this.a_Reset().then(() => {

@@ -27,6 +27,9 @@ export default {
         getForm(state) {
             return state.form
         },
+        getCourseNames(state) {
+            return state.form.map(x => x.courseName)
+        },
         getInitialState(state) {
             return state.initialState
         },

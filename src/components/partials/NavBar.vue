@@ -6,9 +6,13 @@
             <v-btn v-if="webShareApiSupported" @click="shareViaWebShare" icon>
                 <v-icon>mdi-share</v-icon>
             </v-btn>
-            <v-btn @click="add" class="ml-2" color="green darken-green" outlined fab small bottom>
+            <v-btn v-if="$route.name!=='graph'" @click="add" class="ml-2" color="green darken-green" outlined fab small bottom>
                 <v-icon>mdi-plus</v-icon>
             </v-btn>
+            <v-btn to="gpa" v-if="$route.name==='graph'" @click="add" class="ml-2" color="green darken-green" outlined fab small bottom>
+                <v-icon>mdi-chevron-left</v-icon>
+            </v-btn>
+
         </v-toolbar>
     </v-card>
 

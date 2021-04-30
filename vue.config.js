@@ -2,7 +2,7 @@ module.exports = {
     transpileDependencies: [
         'vuetify'
     ],
-    runtimeCompiler: true,
+    // runtimeCompiler: true,
     pwa: {
         name: 'C/GPA Calculator',
     }, devServer: {

@@ -94,12 +94,21 @@
         mixins: [FormMixin, ComputationMixin],
         name: 'GPAForm',
         methods: {
+            createNew() {
+                this.snackbar = true
+                this.text = "New Record Created"
+            }, deleteAll() {
+                this.snackbar = true
+                this.text = "Records Deleted"
+            },
             ...mapActions('gpa', ["a_AddForm", "a_RemoveForm"]),
             remove(index) {
+
                 this.a_RemoveForm(index)
             },
             add() {
                 let len = this.form.length;
+                this.createNew()
                 if (len === 0) {
                     this.a_AddForm(this.getInitialState)
                 } else {
