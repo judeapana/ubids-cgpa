@@ -6,7 +6,8 @@
             <v-btn v-if="webShareApiSupported" @click="shareViaWebShare" icon>
                 <v-icon>mdi-share</v-icon>
             </v-btn>
-            <v-btn v-if="$route.name!=='graph'" @click="add" class="ml-2" color="green darken-green" outlined fab small bottom>
+            <v-btn v-if="$route.name!=='graph'" @click="add" class="ml-2" color="green darken-green" outlined fab small
+                   bottom>
                 <v-icon>mdi-plus</v-icon>
             </v-btn>
 
@@ -30,7 +31,7 @@
             shareViaWebShare() {
                 navigator.share({
                     title: 'Share GPA Calculator with your friends',
-                    text: 'Accumulator Grade point Calculator',
+                    text: 'Accumulate/ Grade point Calculator developed by Apana Jude',
                     url: this.$route.fullPath
                 })
             },
