@@ -31,7 +31,7 @@
             shareViaWebShare() {
                 navigator.share({
                     title: 'Share GPA Calculator with your friends',
-                    text: 'Accumulate/ Grade point Calculator developed by Apana Jude',
+                    text: 'Accumulative/ Grade point Calculator developed by Apana Jude',
                     url: this.$route.fullPath
                 })
             },
