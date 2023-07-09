@@ -19,8 +19,7 @@
                                         </span>
                                             <span class="font-italic text-sm-center" v-else :key="1">
                                             <v-chip class="mr-3" x-small>Grade Point {{gradePoint(form)}} </v-chip>
-                                            <v-chip x-small><span
-                                                    class="text-truncate">{{form.courseName}}</span></v-chip>
+                                            <v-chip x-small>{{form.courseName}}</v-chip>
                                         </span>
                                         </v-fade-transition>
                                     </v-col>
@@ -31,32 +30,45 @@
                             <v-container fluid>
                                 <v-row class="mx-auto align-center">
                                     <v-col md="2" cols="12">
-                                        <v-text-field :rules="rules.courseName" type="text"
-                                                      label="The Course"
-                                                      v-model="form.courseName"></v-text-field>
+                                        <v-select :rules="rules.accy" type="text"
+                                                      label="Academic Year" :items="accys"
+                                                   v-model="form.accy"></v-select>
                                     </v-col>
-                                    <v-col md="2" cols="12">
-                                        <v-text-field :min="0" :rules="rules.creditHours" type="number"
-                                                      label="Credit Hours"
-                                                      v-model.number="form.creditHours"></v-text-field>
-                                    </v-col>
-                                    <v-col md="2" cols="12">
-                                        <v-text-field :min="0" :rules="rules.score" type="number" label="Score/Mark"
-                                                      v-model.number="form.score"></v-text-field>
-                                    </v-col>
-                                    <v-col md="2" cols="12">
-                                        <p class="text-sm-subtitle-2">Your Grade Point : {{gradePoint(form)}}</p>
-                                    </v-col>
-                                    <v-col md="4" cols="12">
-                                        <v-btn @click="add" class="mr-4" color="green darken-green" outlined fab small
-                                               bottom>
-                                            <v-icon>mdi-plus</v-icon>
-                                        </v-btn>
-                                        <v-btn @click="remove(index)" color="red darken-red" outlined fab small bottom>
-                                            <v-icon>mdi-minus</v-icon>
-                                        </v-btn>
+                                  <v-col md="2" cols="12">
+                                        <v-select :rules="rules.term" type="text"
+                                                      label="Trimester/Semester" :items="terms"
+                                                   v-model="form.term"></v-select>
                                     </v-col>
                                 </v-row>
+                              <v-row class="mx-auto align-center">
+                                <v-col md="2" cols="12">
+                                  <v-text-field :rules="rules.courseName" type="text"
+                                                label="The Course"
+                                                v-model="form.courseName"></v-text-field>
+                                </v-col>
+                                <v-col md="2" cols="12">
+                                  <v-text-field :min="0" :rules="rules.creditHours" type="number"
+                                                label="Credit Hours"
+                                                v-model.number="form.creditHours"></v-text-field>
+                                </v-col>
+                                <v-col md="2" cols="12">
+                                  <v-text-field :min="0" :rules="rules.score" type="number" label="Score/Mark"
+                                                v-model.number="form.score"></v-text-field>
+                                </v-col>
+                                <v-col md="2" cols="12">
+                                  <p class="text-sm-subtitle-2">Your Grade Point : {{gradePoint(form)}}</p>
+                                </v-col>
+                                <v-col md="4" cols="12">
+                                  <v-btn @click="add" class="mr-4" color="green darken-green" outlined fab small
+                                         bottom>
+                                    <v-icon>mdi-plus</v-icon>
+                                  </v-btn>
+                                  <v-btn @click="remove(index)" color="red darken-red" outlined fab small bottom>
+                                    <v-icon>mdi-minus</v-icon>
+                                  </v-btn>
+                                </v-col>
+                              </v-row>
+
                             </v-container>
                         </v-expansion-panel-content>
                     </v-expansion-panel>
@@ -73,8 +85,7 @@
                     </h1>
                     <div class="subheading">
                         <p>Kindly click on the (+) to start/continue</p>
-                        <p class="text-sm-subtitle-1 font-italic">Developed by <a href="https://github.com/judeapana">Apana
-                            Jude</a></p>
+                        <p class="text-sm-subtitle-1 font-italic">Developed by <a href="https://gh.linkedin.com/in/apana-jude-241424156">https://gh.linkedin.com/in/apana-jude-241424156</a></p>
 
                     </div>
                 </v-col>
@@ -121,6 +132,13 @@
             }
         },
         computed: {
+          accys(){
+            return Array.from({ length: this.endYear - this.startYear + 1 }).reduce((acc, _, index) => {
+              const year = `${this.startYear + index}/${this.startYear + index + 1}`;
+              acc.push(year);
+              return acc;
+            }, []);
+          },
             ...mapGetters('gpa', ['getForm', 'getInitialState', 'getLoading']),
             valid: {
                 get() {
@@ -132,18 +150,21 @@
 
         },
         data() {
-            return {
-                panel: [],
-                form: [],
-                rules: {
-                    courseName: [this.required()],
-                    creditHours: [this.required(), this.lessThan(0), this.greaterThan(6)],
-                    score: [this.required(), this.lessThan(0), this.greaterThan(100)],
-                    gradePoint: [this.required()]
-                }
+          return {
+            panel: [],
+            startYear: 2017,
+            endYear: 2030,
+            form: [],
+            terms: ["First","Second","Third","Fourth","Fifth"],
+            rules: {
+              courseName: [this.required()],
+              creditHours: [this.required(), this.lessThan(0), this.greaterThan(6)],
+              score: [this.required(), this.lessThan(0), this.greaterThan(100)],
+              gradePoint: [this.required()],
+              term: [this.required()],
+              accy: [this.required()]
             }
-
+          }
         }
-
     }
 </script>

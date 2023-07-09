@@ -10,7 +10,9 @@ export default {
                 courseName: 'Course',
                 creditHours: 0,
                 score: 0,
-                gradePoint: 0
+                gradePoint: 0,
+                term: 0,
+                accy: ""
             },
             form: [
                 {
@@ -18,7 +20,9 @@ export default {
                     courseName: 'Course',
                     creditHours: 0,
                     score: 0,
-                    gradePoint: 0
+                    gradePoint: 0,
+                    term: 0,
+                    accy: ""
                 }
             ]
         }
@@ -97,22 +101,22 @@ export default {
             commit('setLoading', true)
             return new Promise(((resolve, reject) => {
                 try {
-                    if (payload <= 1.49) {
+                    if (payload <= 1.75) {
                         commit('setLoading', false)
                         return "Failed";
                     } else if (payload <= 1.99) {
                         commit('setLoading', false)
                         return "Passed";
-                    } else if (payload <= 2.49) {
+                    } else if (payload <= 2.59) {
                         commit('setLoading', false)
                         return "Third Class";
-                    } else if (payload <= 3.49) {
+                    } else if (payload <= 3.24) {
                         commit('setLoading', false)
                         return "Second Class Lower";
-                    } else if (payload <= 4.49) {
+                    } else if (payload <= 3.64) {
                         commit('setLoading', false)
                         return "Second Class Upper";
-                    } else if (payload <= 5.0 && payload >= 4.5) {
+                    } else if (payload <= 4.0) {
                         commit('setLoading', false)
                         return "First Class";
                     } else {
@@ -130,8 +134,6 @@ export default {
                 let totalCreditsHours, totalGradePoints;
                 totalCreditsHours = state.form.reduce((total, x) => total + x.creditHours, 0);
                 totalGradePoints = state.form.reduce((total, x) => total + (payload({score: x.score}) * x.creditHours), 0)
-                console.log(totalCreditsHours)
-                console.log(totalGradePoints)
                 try {
                     commit('setLoading', false)
                     resolve((totalGradePoints / totalCreditsHours).toFixed(3))

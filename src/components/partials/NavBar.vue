@@ -1,10 +1,10 @@
 <template>
     <v-card color="red lighten-grey" flat tile :loading="false">
         <v-toolbar dense>
-            <v-toolbar-title>C/GPA</v-toolbar-title>
+            <v-toolbar-title>UBIDS C/GPA</v-toolbar-title>
             <v-spacer></v-spacer>
-            <v-btn v-if="webShareApiSupported" @click="shareViaWebShare" icon>
-                <v-icon>mdi-share</v-icon>
+            <v-btn v-if="webShareApiSupported" @click="shareViaWebShare" icon title="Share">
+              <v-icon>mdi-share</v-icon>
             </v-btn>
             <v-btn v-if="$route.name!=='graph'" @click="add" class="ml-2" color="green darken-green" outlined fab small
                    bottom>
@@ -30,8 +30,8 @@
         methods: {
             shareViaWebShare() {
                 navigator.share({
-                    title: 'Share GPA Calculator with your friends',
-                    text: 'Accumulative/ Grade point Calculator developed by Apana Jude',
+                    title: 'Share UBIDS GPA Calculator with your friends',
+                    text: 'Accumulative/ Grade point Calculator developed by https://gh.linkedin.com/in/apana-jude-241424156',
                     url: this.$route.fullPath
                 })
             },
@@ -50,7 +50,6 @@
             ...mapActions('gpa', ["a_AddForm"]),
         },
         data: () => ({
-
             items: [
                 {title: 'About Us'},
                 {title: 'Share'},

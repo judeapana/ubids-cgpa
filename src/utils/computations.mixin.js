@@ -1,39 +1,39 @@
 export default {
     methods: {
         gradePoint({score}) {
-            if (score < 39) {
-                return 0;
-            } else if (score < 45) {
-                return 1.5;
-            } else if (score < 50) {
-                return 2.0;
-            } else if (score < 55) {
-                return 2.5;
-            } else if (score < 60) {
-                return 3.0;
-            } else if (score < 65) {
-                return 3.5;
-            } else if (score < 70) {
-                return 4.0;
-            } else if (score < 80) {
-                return 4.5;
+            if (score < 30) {
+                return 1.00;
+            } else if (score <= 44) {
+                return 1.50;
+            } else if (score <= 49) {
+                return 1.75;
+            } else if (score <= 54) {
+                return 2.00;
+            } else if (score <= 59) {
+                return 2.50;
+            } else if (score <= 64) {
+                return 3.00;
+            } else if (score <= 69) {
+                return 3.50;
+            } else if (score <= 74) {
+                return 3.75;
             } else if (score < 100) {
-                return 5.0;
+                return 4.00;
             }
             return 0;
         },
         finalClass(gpa) {
-            if (gpa <= 1.49) {
+            if (gpa < 1.75) {
                 return "Failed";
             } else if (gpa <= 1.99) {
                 return "Passed";
-            } else if (gpa <= 2.49) {
+            } else if (gpa <= 2.59) {
                 return "Third Class";
-            } else if (gpa <= 3.49) {
+            } else if (gpa <= 3.24) {
                 return "Second Class Lower";
-            } else if (gpa <= 4.49) {
+            } else if (gpa <= 3.64) {
                 return "Second Class Upper";
-            } else if (gpa <= 5.0 && gpa >= 4.5) {
+            } else if (gpa >= 3.65) {
                 return "First Class";
             } else {
                 return "Not Found!!";

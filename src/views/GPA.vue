@@ -1,6 +1,5 @@
 <template>
     <div>
-
         <v-bottom-navigation horizontal>
             <v-btn :disabled="!valid" @click="run" color="deep-purple accent-4" text>
                 <span>Calculate</span>
@@ -14,6 +13,10 @@
             <v-btn to="graph" :disabled="!valid" color="deep-purple accent-4" text>
                 <span>Graph</span>
                 <v-icon>mdi-graph</v-icon>
+            </v-btn>
+          <v-btn to="view" :disabled="!valid" color="deep-purple accent-4" text>
+                <span>View</span>
+                <v-icon>mdi-eye</v-icon>
             </v-btn>
         </v-bottom-navigation>
         <GPAForm></GPAForm>

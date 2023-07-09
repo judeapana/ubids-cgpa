@@ -4,8 +4,8 @@ module.exports = {
     ],
     // runtimeCompiler: true,
     pwa: {
-        name: 'C/GPA Calculator',
+        name: 'UBIDS C/GPA Calculator',
     }, devServer: {
-        https: true
+        https: false
     }
 }
