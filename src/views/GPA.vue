@@ -3,20 +3,20 @@
         <v-bottom-navigation horizontal>
             <v-btn :disabled="!valid" @click="run" color="deep-purple accent-4" text>
                 <span>Calculate</span>
-                <v-icon>mdi-history</v-icon>
+                <v-icon color="green">mdi-history</v-icon>
             </v-btn>
             <v-btn @click="reset" color="deep-purple accent-4" text>
                 <span>Reset All</span>
-                <v-icon>mdi-delete</v-icon>
+                <v-icon color="red">mdi-delete</v-icon>
             </v-btn>
 
             <v-btn to="graph" :disabled="!valid" color="deep-purple accent-4" text>
                 <span>Graph</span>
-                <v-icon>mdi-graph</v-icon>
+                <v-icon color="indigo">mdi-graph</v-icon>
             </v-btn>
           <v-btn to="view" :disabled="!valid" color="deep-purple accent-4" text>
                 <span>View</span>
-                <v-icon>mdi-eye</v-icon>
+                <v-icon color="orange">mdi-eye</v-icon>
             </v-btn>
         </v-bottom-navigation>
         <GPAForm></GPAForm>
@@ -47,6 +47,7 @@
                 </v-card-actions>
             </v-card>
         </v-dialog>
+
     </div>
 </template>
 

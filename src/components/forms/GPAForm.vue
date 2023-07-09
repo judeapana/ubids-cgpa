@@ -85,8 +85,7 @@
                     </h1>
                     <div class="subheading">
                         <p>Kindly click on the (+) to start/continue</p>
-                        <p class="text-sm-subtitle-1 font-italic">Developed by <a href="https://gh.linkedin.com/in/apana-jude-241424156">https://gh.linkedin.com/in/apana-jude-241424156</a></p>
-
+                        <p class="text-sm-subtitle-1 font-italic">Developed by <a href="https://www.yinsys.com">YIN SYSTEMS TOOLKIT</a></p>
                     </div>
                 </v-col>
             </v-row>
@@ -147,7 +146,6 @@
                     return this.$store.commit('gpa/setValid', value)
                 }
             }
-
         },
         data() {
           return {
