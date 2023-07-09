@@ -177,8 +177,8 @@ export default {
     },
     shareViaWebShare() {
       navigator.share({
-        title: 'Share UBIDS GPA Calculator with your friends',
-        text: 'Accumulative/ Grade point Calculator developed by https://gh.linkedin.com/in/apana-jude-241424156',
+        title: 'Share UBIDS GPA Calculator with your friends and family.',
+        text: 'Accumulative/ Grade point Calculator developed by Yin Systems Value Added Service. https://www.yinsys.com',
         url: this.$route.fullPath
       })
     },
