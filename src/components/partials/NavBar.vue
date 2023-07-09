@@ -1,6 +1,8 @@
 <template>
-  <v-card color="red lighten-grey" flat tile :loading="false">
-    <v-toolbar dense>
+  <v-card  color="red lighten-grey" flat tile :loading="false">
+    <v-app-bar app
+               fixed
+               class="toolbar-fixed">
       <v-toolbar-title>UBIDS C/GPA</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn @click="run_more_app" icon title="store">
@@ -16,7 +18,7 @@
              bottom>
         <v-icon>mdi-plus</v-icon>
       </v-btn>
-    </v-toolbar>
+    </v-app-bar>
     <v-dialog v-model="info" width="500">
       <v-card>
         <v-card-title class="headline">
