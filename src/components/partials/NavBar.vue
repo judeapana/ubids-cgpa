@@ -25,16 +25,17 @@
 
         <v-card-text>
           <div>
-            <p>This web application is built to assist students specific to UBIDS Grading Schema. </p>
+            <p>This meticulously crafted web application is tailored to empower students, especially those following the
+              UBIDS Grading Schema, in effortlessly computing and evaluating their academic records independently</p>
             <p>We provide a variety of services, such as</p>
             <ul>
-              <li>Company websites</li>
-              <li>Custom website/Automated Systems</li>
-              <li>Reseller systems for online sales of e-vouchers</li>
-              <li>Management systems Pharmacy Management</li>
+              <li>Company Websites</li>
+              <li>Custom Website/Automated Systems</li>
+              <li>Reseller Systems for online sales of e-vouchers</li>
+              <li>Management Systems Pharmacy Management</li>
               <li>Donation Platforms via Short Code</li>
               <li>E-voting Systems</li>
-              <li>Short code services</li>
+              <li>Short Code Services</li>
             </ul>
             <p>If you have any issues or query kindly contact us on
               <a target="_blank" href="mailto:dev@yinsys.com">dev@yinsys.com</a> or on whatsApp
@@ -81,7 +82,7 @@
           </div>
           <v-row class="mt-5">
             <v-col>
-              <v-card >
+              <v-card>
                 <v-img height="150"
                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9yKBo-nrhpIfdAGWOoy4XgMvwjftPI7yukMX7SICMXaYjbre_el8djj8bgS60Nlw6Bww&usqp=CAU"></v-img>
                 <v-card-title>CGPA Calculator</v-card-title>
