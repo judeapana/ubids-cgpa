@@ -1,6 +1,6 @@
 <template>
     <div>
-        <v-bottom-navigation>
+        <v-bottom-navigation class="mt-15">
             <v-btn to="/" color="deep-purple accent-4" text>
                 <span>Back</span>
                 <v-icon>mdi-chevron-left</v-icon>
